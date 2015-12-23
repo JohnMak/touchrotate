@@ -1,0 +1,41 @@
+@mixin transform($text)
+  -webkit-transform: $text
+  -ms-transform: $text
+  transform: $text
+  -webkit-backface-visibility: hidden
+
+
+#rotate_target_wrapper
+  width: 220px
+  height: 220px 
+  margin: auto
+
+
+#rotate_target
+  position: relative
+  width: 200px
+  height: 200px
+  border-radius: 50%
+  padding: 10px
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAU0lEQVQIHQXBwRGDIBAAwO2/AMcCDHAcPjIRxjJ8Je1kl1uqUgphsWu6w0sIG6npLpcUBql4e/wsVRKabrkNTacIYbMrwsF06rqUhsnXVKVT+Hj+Ue4rPSONk4kAAAAASUVORK5CYII=")
+
+.circle
+  position: absolute
+  width: 20px
+  height: 20px
+  border-radius: 50%
+  background: greenyellow
+  left: 50%
+  margin-left: -10px
+  transform-origin: 50% 99px
+
+
+  @for $i from 0 through 7
+    &:nth-child(#{$i+1})
+      @include transform(rotate($i*45deg))
+
+
+#rotate_target_area
+  position: absolute
+  width: 100%
+  height: 100%
